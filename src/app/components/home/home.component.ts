@@ -11,12 +11,16 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class HomeComponent implements OnInit {
 
   nuevosTemas: any [] = [];
+  loading: boolean;
 
   constructor( private spotify: SpotifyService ) { 
+
+    this.loading=true;
+
     this.spotify.getNewReleases()
     .subscribe( (data: any )=>{
-      console.log(data.albums.items[0].artists[0].name)
-       this.nuevosTemas = data.albums.items
+       this.nuevosTemas = data;
+       this.loading=false;
     })
     
    }
