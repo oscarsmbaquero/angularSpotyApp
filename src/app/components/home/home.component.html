@@ -1,0 +1,13 @@
+<div class="card-columns">
+    <div  *ngFor="let temas of nuevosTemas" class="card">
+      <img class="card-img-top" [src]="temas.images[0].url" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{temas.name}}</h5>
+        <p class="card-text">
+            <span *ngFor="let grupo of temas.artists" class="badge badge-primary">
+                {{grupo.name}}
+            </span>
+        </p>
+      </div>
+    </div>
+</div>    

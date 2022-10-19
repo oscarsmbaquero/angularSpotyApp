@@ -12,13 +12,20 @@ export class SpotifyService {
 
     const headers = new HttpHeaders({
 
-      'Authorization': ' Bearer BQC5rICQheubhB6H_dsuhKiCvYH6PHNSQ-R1VRRLaabnX3AFvKL_rGFFzggCyNi9HCf7warC7deTsihwpQ2QybN4InQhB1Ka25f3dZRl7C0Wg_jq3YZ08Bzy3tZLV_kUZgCX8ZWYJ6-u8N7Q5tc6ycfGHZtZge9EYEoUJBjo1Gb6kb0wbSur1D2Gfe1UMLY'
+      'Authorization': ' Bearer BQDnOoGP22YnBuU87JQJyGPBpJdPDTt-P6NvLg79d8WT_A31Xvryq5nQy37zpTn3qFsW_OFQp5bDe_Z-bVCfIjbfDhw9KmvxeW_hWj6O5f3jpsn-1upjv5NxPrrcUrPnZc7idGetvxqthBnCWid5dyhcHKQe1rOrMjH_Wn_KYWhXN8zsIgKjOptTySYmhaI'
     });
-    this.http.get('	https://api.spotify.com/v1/browse/new-releases', { headers})
-    .subscribe ( data => {
-      console.log(data);
-      
-    })
+     return this.http.get('	https://api.spotify.com/v1/browse/new-releases', { headers});
+    
+
+  }
+
+  getArtista( termino:string){
+    const headers = new HttpHeaders({
+
+      'Authorization': ' Bearer BQDnOoGP22YnBuU87JQJyGPBpJdPDTt-P6NvLg79d8WT_A31Xvryq5nQy37zpTn3qFsW_OFQp5bDe_Z-bVCfIjbfDhw9KmvxeW_hWj6O5f3jpsn-1upjv5NxPrrcUrPnZc7idGetvxqthBnCWid5dyhcHKQe1rOrMjH_Wn_KYWhXN8zsIgKjOptTySYmhaI'
+    });
+     return this.http.get(`https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=15`, { headers});
+    
 
   }
 }
